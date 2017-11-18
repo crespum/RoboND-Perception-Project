@@ -40,6 +40,7 @@ You're reading it!
 [world3]: ./misc_images/world3.png
 [improvements]: ./misc_images/improvements.png
 [improvements2]: ./misc_images/improvements2.png
+[improvements3]: ./misc_images/improvements3.png
 
 ## Exercise 1, 2 and 3 pipeline implemented
 * Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
@@ -75,7 +76,7 @@ cloud_filtered = vox.filter()
 passthrough = cloud_filtered.make_passthrough_filter()
 filter_axis = 'z'
 passthrough.set_filter_field_name(filter_axis)
-axis_min = 0.63
+axis_min = 0.6
 axis_max = 1
 passthrough.set_filter_limits(axis_min, axis_max)
 cloud_filtered = passthrough.filter()
@@ -256,3 +257,8 @@ As it can be seen above, the biscuits case is complete now, though the book, whi
 In the scenario two the book is recognized as biscuits, but it's not clear to me why. Even if the normals distribution may be similar, the colors distribution should be quite different. In the third scenario the biscuits are also problematic. Increasing the number of training samples for this object may help to fix this.
 
 To sum up, this project has been really interesting because it mixes classic and modern image processing techniques. However, a more flexible environment is needed to perform changes faster and try new ideas or modify parameters without wasting too much time.
+
+**UPDATE after submission**
+The RANSAC problem has been solved by adjusting the passthrough filter in the z-axis:
+
+![Passthrough improvement][improvements3]
